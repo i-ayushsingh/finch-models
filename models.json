@@ -1,0 +1,71 @@
+{
+  "version": "1.0.0-alpha",
+  "updatedAt": "2026-07-29T17:25:36.979654Z",
+  "models": [
+    {
+      "id": "whisper-base",
+      "name": "Whisper Base",
+      "category": "speech-recognition",
+      "filename": "ggml-base.bin",
+      "sha256": "60ed5bc3dd14eea856493d334349b405782ddcaf0028d4b5df4088345fba2efe",
+      "size": 147951465,
+      "recommended": false,
+      "releaseAsset": ""
+    },
+    {
+      "id": "whisper-small",
+      "name": "Whisper Small",
+      "category": "speech-recognition",
+      "filename": "ggml-small.bin",
+      "sha256": "1be3a9b2063867b937e64e2ec7483364a79917e157fa98c5d94b5c1fffea987b",
+      "size": 487601967,
+      "recommended": true,
+      "releaseAsset": ""
+    },
+    {
+      "id": "whisper-medium",
+      "name": "Whisper Medium",
+      "category": "speech-recognition",
+      "filename": "ggml-medium.bin",
+      "sha256": "6c14d5adee5f86394037b4e4e8b59f1673b6cee10e3cf0b11bbdbee79c156208",
+      "size": 1533763059,
+      "recommended": false,
+      "releaseAsset": ""
+    },
+    {
+      "id": "whisper-large-v3-turbo-q5_0",
+      "name": "Whisper Large v3 Turbo Q5_0",
+      "category": "speech-recognition",
+      "filename": "ggml-large-v3-turbo-q5_0.bin",
+      "sha256": "394221709cd5ad1f40c46e6031ca61bce88931e6e088c188294c6d5a55ffa7e2",
+      "size": 574041195,
+      "recommended": false,
+      "releaseAsset": ""
+    },
+    {
+      "id": "silero-vad",
+      "name": "Silero VAD",
+      "category": "voice-activity-detection",
+      "filename": "silero_vad.onnx",
+      "sha256": "1a153a22f4509e292a94e67d6f9b85e8deb25b4988682b7e174c65279d8788e3",
+      "size": 2327524,
+      "recommended": true,
+      "releaseAsset": ""
+    },
+    {
+      "id": "indictrans2-indic-en-dist-200M",
+      "name": "IndicTrans2 Distilled 200M (Indic \u2192 English)",
+      "category": "translation",
+      "filename": "indictrans2-indic-en-dist-200M.safetensors",
+      "version": "2025-05-02",
+      "sha256": "a9bff20ae94712db41c8dc99d2e381eb456ddccbcd48cb2c7cf077ccc5bc58d8",
+      "size": 913353672,
+      "recommended": true,
+      "default": true,
+      "license": "MIT",
+      "homepage": "https://github.com/AI4Bharat/IndicTrans2",
+      "releaseAsset": "",
+      "direction": "Indic languages \u2192 English"
+    }
+  ]
+}

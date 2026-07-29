@@ -1,0 +1,37 @@
+name: Validate metadata
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.x"
+      - name: Validate JSON
+        run: python -m json.tool models.json > /dev/null
+      - name: Verify checksums and manifest metadata
+        run: python scripts/verify_models.py --metadata-only
+      - name: Ensure translation metadata exists
+        shell: bash
+        run: |
+          python - <<'PY'
+          import json
+          manifest = json.load(open("models.json", encoding="utf-8"))
+          translation = [m for m in manifest["models"] if m.get("category") == "translation"]
+          assert len(translation) == 1, "Expected exactly one IndicTrans2 Indic→English model"
+          assert all(m.get("license") == "MIT" and m.get("default") is True for m in translation)
+          PY
+      - name: Reject committed model binaries
+        shell: bash
+        run: |
+          if git ls-files -z | grep -Eizq '\.(bin|onnx|gguf|pt|pth|ckpt|safetensors)$'; then
+            echo "Model binaries must not be committed to Git."
+            exit 1
+          fi
+      - name: Verify README exists
+        run: test -f README.md
