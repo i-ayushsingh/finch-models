@@ -1,3 +1,3 @@
-43d37191602727524a7d8c6da0eef11c4ba24320f5b4730f1a2497befc2efa77  parakeet-tdt-0.6b-v3-int8.tar.gz
+43d37191602727524a7d8c6da0eef11c4ba24320f5b4730f1a2497befc2efa77  parakeet-v3-int8.tar.gz
 1a153a22f4509e292a94e67d6f9b85e8deb25b4988682b7e174c65279d8788e3  silero_vad.onnx
 a9bff20ae94712db41c8dc99d2e381eb456ddccbcd48cb2c7cf077ccc5bc58d8  indictrans2-indic-en-dist-200M.safetensors

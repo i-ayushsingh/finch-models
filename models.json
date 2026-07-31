@@ -6,7 +6,7 @@
       "id": "parakeet-v3",
       "name": "Parakeet V3 (Fast CPU)",
       "category": "speech-recognition",
-      "filename": "parakeet-tdt-0.6b-v3-int8.tar.gz",
+      "filename": "parakeet-v3-int8.tar.gz",
       "sha256": "43d37191602727524a7d8c6da0eef11c4ba24320f5b4730f1a2497befc2efa77",
       "size": 478517071,
       "recommended": true,

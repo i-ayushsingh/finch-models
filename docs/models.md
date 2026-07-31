@@ -32,7 +32,7 @@ Finch uses Parakeet models for fast, CPU-friendly offline transcription with aut
 | Field | Value |
 |---|---|
 | **ID** | `parakeet-v3` |
-| **Filename** | `parakeet-tdt-0.6b-v3-int8.tar.gz` |
+| **Filename** | `parakeet-v3-int8.tar.gz` |
 | **Category** | Speech Recognition |
 | **License** | MIT |
 | **Download size** | ~478 MB (478,517,071 bytes) |

@@ -15,7 +15,7 @@ DOWNLOADS = ROOT / "downloads"
 HF_TOKEN = os.environ.get("HF_TOKEN") or os.environ.get("HUGGING_FACE_HUB_TOKEN")
 
 MODELS = [
-    ("parakeet-tdt-0.6b-v3-int8.tar.gz", "https://github.com/i-ayushsingh/finch-models/releases/download/v1.0.0-alpha/parakeet-tdt-0.6b-v3-int8.tar.gz"),
+    ("parakeet-v3-int8.tar.gz", "https://github.com/i-ayushsingh/finch-models/releases/download/v1.0.0-alpha/parakeet-v3-int8.tar.gz"),
     ("silero_vad.onnx", "https://raw.githubusercontent.com/snakers4/silero-vad/master/src/silero_vad/data/silero_vad.onnx"),
     ("indictrans2-indic-en-dist-200M.safetensors", "https://huggingface.co/ai4bharat/indictrans2-indic-en-dist-200M/resolve/main/model.safetensors?download=true"),
 ]

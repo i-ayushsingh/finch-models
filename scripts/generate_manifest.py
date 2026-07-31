@@ -13,7 +13,7 @@ DOWNLOADS = ROOT / "downloads"
 OUTPUT = ROOT / "models.json"
 
 SPECS = [
-    ("parakeet-v3", "Parakeet V3 (Fast CPU)", "speech-recognition", "parakeet-tdt-0.6b-v3-int8.tar.gz", True),
+    ("parakeet-v3", "Parakeet V3 (Fast CPU)", "speech-recognition", "parakeet-v3-int8.tar.gz", True),
     ("silero-vad", "Silero VAD", "voice-activity-detection", "silero_vad.onnx", True),
 ]
 
