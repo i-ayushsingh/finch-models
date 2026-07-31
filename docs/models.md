@@ -9,14 +9,11 @@ All binaries are distributed as GitHub Release assets. SHA-256 hashes and exact 
 ## Contents
 
 - [Speech Recognition](#speech-recognition)
-  - [Whisper Large v3 Turbo Q5](#whisper-large-v3-turbo-q5)
-  - [Whisper Medium](#whisper-medium)
-  - [Whisper Small](#whisper-small)
-  - [Whisper Base](#whisper-base)
+  - [Parakeet V3 (Fast CPU)](#parakeet-v3-fast-cpu)
 - [Voice Activity Detection](#voice-activity-detection)
   - [Silero VAD](#silero-vad)
 - [Translation](#translation)
-  - [IndicTrans2 Distilled 200M](#indictrans2-distilled-200m)
+  - [IndicTrans2 (Hindi → English)](#indictrans2-hindi--english)
 - [Maintenance](#maintenance)
   - [Adding a New Model](#adding-a-new-model)
   - [Regenerating Checksums](#regenerating-checksums)
@@ -26,99 +23,25 @@ All binaries are distributed as GitHub Release assets. SHA-256 hashes and exact 
 
 ## Speech Recognition
 
-Finch uses OpenAI Whisper models in their GGML quantized form via [whisper.cpp](https://github.com/ggerganov/whisper.cpp) for fast, CPU-friendly offline transcription.
+Finch uses Parakeet models for fast, CPU-friendly offline transcription with automatic language detection.
 
 ---
 
-### Whisper Large v3 Turbo Q5
+### Parakeet V3 (Fast CPU)
 
 | Field | Value |
 |---|---|
-| **ID** | `whisper-large-v3-turbo-q5_0` |
-| **Filename** | `ggml-large-v3-turbo-q5_0.bin` |
+| **ID** | `parakeet-v3` |
+| **Filename** | `parakeet-tdt-0.6b-v3-int8.tar.gz` |
 | **Category** | Speech Recognition |
 | **License** | MIT |
-| **Source** | [openai/whisper](https://github.com/openai/whisper) |
-| **Download** | [ggerganov/whisper.cpp](https://huggingface.co/ggerganov/whisper.cpp) |
-| **Download size** | ~548 MB (574,041,195 bytes) |
-| **SHA-256** | `394221709cd5ad1f40c46e6031ca61bce88931e6e088c188294c6d5a55ffa7e2` |
-| **Recommended hardware** | Recent CPU with AVX2 support or GPU; 8 GB RAM |
-| **Working memory** | ~3 GB |
+| **Download size** | ~478 MB (478,517,071 bytes) |
+| **SHA-256** | `43d37191602727524a7d8c6da0eef11c4ba24320f5b4730f1a2497befc2efa77` |
+| **Recommended hardware** | Modern CPU; 4 GB RAM |
 
-**Purpose.** High-quality speech-to-text transcription at a substantially reduced model size compared to the full Large v3. The Q5_0 quantization preserves most of the accuracy of the full-precision model while cutting the download size by more than half.
+**Purpose.** CPU-optimized speech-to-text transcription with auto-detection for Hindi, English, and Hinglish. Delivers ~5x realtime performance.
 
-**Accuracy notes.** Excellent accuracy across a wide range of accents and recording conditions. The best choice when transcription quality is the priority and the full Medium model is not sufficient.
-
-**Why Finch includes this model.** Provides a quality ceiling for users who need the highest accuracy available without the full unquantized Large model footprint.
-
----
-
-### Whisper Medium
-
-| Field | Value |
-|---|---|
-| **ID** | `whisper-medium` |
-| **Filename** | `ggml-medium.bin` |
-| **Category** | Speech Recognition |
-| **License** | MIT |
-| **Source** | [openai/whisper](https://github.com/openai/whisper) |
-| **Download** | [ggerganov/whisper.cpp](https://huggingface.co/ggerganov/whisper.cpp) |
-| **Download size** | ~1.43 GB (1,533,763,059 bytes) |
-| **SHA-256** | `6c14d5adee5f86394037b4e4e8b59f1673b6cee10e3cf0b11bbdbee79c156208` |
-| **Recommended hardware** | Fast multi-core CPU or GPU; 16 GB RAM |
-| **Working memory** | ~5 GB |
-
-**Purpose.** Full-precision medium model for users who want maximum accuracy without quantization artifacts and have the RAM to support it.
-
-**Accuracy notes.** Higher accuracy than Small on heavily accented speech and noisy recordings. Noticeably slower than Small on low-core-count machines.
-
-**Why Finch includes this model.** Covers users who need higher accuracy than Small and have sufficient hardware, but prefer full-precision weights over a quantized Large variant.
-
----
-
-### Whisper Small
-
-| Field | Value |
-|---|---|
-| **ID** | `whisper-small` |
-| **Filename** | `ggml-small.bin` |
-| **Category** | Speech Recognition |
-| **License** | MIT |
-| **Source** | [openai/whisper](https://github.com/openai/whisper) |
-| **Download** | [ggerganov/whisper.cpp](https://huggingface.co/ggerganov/whisper.cpp) |
-| **Download size** | ~465 MB (487,601,967 bytes) |
-| **SHA-256** | `1be3a9b2063867b937e64e2ec7483364a79917e157fa98c5d94b5c1fffea987b` |
-| **Recommended hardware** | Modern multi-core CPU; 8 GB RAM |
-| **Working memory** | ~2 GB |
-
-**Purpose.** The best balance of accuracy and speed for general use. Handles clear recordings and standard accents reliably on any modern laptop.
-
-**Accuracy notes.** Good accuracy for everyday transcription. Performance degrades in very noisy environments or with heavy accents; in those cases Whisper Medium or Large v3 Turbo Q5 is preferable.
-
-**Why Finch includes this model.** The default and recommended transcription model. Covers the broadest range of hardware while still delivering practical accuracy.
-
----
-
-### Whisper Base
-
-| Field | Value |
-|---|---|
-| **ID** | `whisper-base` |
-| **Filename** | `ggml-base.bin` |
-| **Category** | Speech Recognition |
-| **License** | MIT |
-| **Source** | [openai/whisper](https://github.com/openai/whisper) |
-| **Download** | [ggerganov/whisper.cpp](https://huggingface.co/ggerganov/whisper.cpp) |
-| **Download size** | ~141 MB (147,951,465 bytes) |
-| **SHA-256** | `60ed5bc3dd14eea856493d334349b405782ddcaf0028d4b5df4088345fba2efe` |
-| **Recommended hardware** | Any modern CPU; 4 GB RAM |
-| **Working memory** | ~1 GB |
-
-**Purpose.** The smallest and fastest Whisper variant. Suitable for machines with limited RAM or when low latency matters more than accuracy.
-
-**Accuracy notes.** Noticeably less accurate than Small, especially on accented or overlapping speech. Best for quick drafts, keyword spotting, or resource-constrained environments.
-
-**Why Finch includes this model.** Provides a low-resource option for users on older hardware or for scenarios where speed is paramount.
+**Why Finch includes this model.** The default recommended speech recognition model for Finch. Provides high speed and accuracy for Indian multi-lingual speech.
 
 ---
 

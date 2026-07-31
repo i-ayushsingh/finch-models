@@ -27,9 +27,13 @@
       "name": "IndicTrans2 (Hindi → English)",
       "category": "translation",
       "filename": "indictrans2-indic-en-dist-200M.safetensors",
+      "version": "2025-05-02",
       "sha256": "a9bff20ae94712db41c8dc99d2e381eb456ddccbcd48cb2c7cf077ccc5bc58d8",
       "size": 913353672,
       "recommended": true,
+      "default": true,
+      "license": "MIT",
+      "homepage": "https://github.com/AI4Bharat/IndicTrans2",
       "description": "Hindi/Hinglish to English translation.",
       "direction": "Hindi → English"
     }

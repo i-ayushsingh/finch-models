@@ -34,12 +34,9 @@ This repository is the **official model registry** for [Finch](https://github.co
 
 | Category | Model | Purpose | Recommended | Approx. Size |
 |---|---|---|:---:|---:|
-| Speech Recognition | Whisper Large v3 Turbo Q5 | High-quality, quantized transcription | | ~548 MB |
-| Speech Recognition | Whisper Medium | High-accuracy transcription | | ~1.43 GB |
-| Speech Recognition | Whisper Small | Balanced accuracy and speed | ✓ | ~465 MB |
-| Speech Recognition | Whisper Base | Fast, lightweight transcription | | ~141 MB |
+| Speech Recognition | Parakeet V3 (Fast CPU) | CPU-optimized. Hindi/English/Hinglish auto-detect | ✓ | ~478 MB |
 | Voice Activity Detection | Silero VAD | Detects speech vs. silence | ✓ | ~2.2 MB |
-| Translation | IndicTrans2 Distilled 200M | Indic languages → English | ✓ | ~871 MB |
+| Translation | IndicTrans2 (Hindi → English) | Hindi/Hinglish to English translation | ✓ | ~871 MB |
 
 > Finch automatically selects the recommended model for each category on first launch. The user can switch models in settings.
 
